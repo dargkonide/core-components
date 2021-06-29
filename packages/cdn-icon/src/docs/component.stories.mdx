@@ -1,8 +1,10 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { CDNIcon } from './Component';
-import { version } from '../package.json';
+import { CDNIcon } from '..';
+import { version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 
 <Meta title='Компоненты' component={CDNIcon} />
@@ -29,9 +31,9 @@ import { version } from '../package.json';
 import { CDNIcon } from '@alfalab/core-components-cdn-icon';
 ```
 
-Компонент иконки, которая запрашивается с сервера.
 
-<CDNIcon name='glyph_debt_m'/>
-
-<Props of={CDNIcon} />
-
+<Tabs
+    description={<Description />}
+    props={<Props of={CDNIcon} /> }
+    changelog={Changelog}
+/>

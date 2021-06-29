@@ -1,9 +1,10 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import { Divider } from './Component';
-import { name, version } from '../package.json';
-
+import { Divider } from '..';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 <Meta title='Компоненты' component={Divider} />
 
@@ -30,15 +31,8 @@ import { name, version } from '../package.json';
 import { Divider } from '@alfalab/core-components-divider';
 ```
 
-Создаёт горизонтальную разделительную линию.
-
-<Preview>
-    <div>
-        <div style={{height: 24, margin: '8px 0', backgroundColor: '#eeeff1'}} />
-        <Divider />
-        <div style={{height: 24, margin: '8px 0', backgroundColor: '#eeeff1'}} />
-    </div>
-</Preview>
-
-
-<Props of={Divider} />
+<Tabs
+    description={<Description />}
+    props={<Props of={Divider} /> }
+    changelog={Changelog}
+/>

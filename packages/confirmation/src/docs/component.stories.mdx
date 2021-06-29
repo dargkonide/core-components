@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, number, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 
-import { Confirmation } from './component';
-import { name, version } from '../package.json';
-import { Select } from '../../select/src/Component';
-
+import { Confirmation } from '..';
+import { name, version } from '../../package.json';
+import { Select } from '../../../select/src/Component';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 <Meta
     title='Компоненты'
@@ -128,7 +129,8 @@ import { Select } from '../../select/src/Component';
 import { Confirmation } from '@alfalab/core-components-confirmation';
 ```
 
-Компонент подтверждения операции по коду.
-
-
-<Props of={Confirmation} />
+<Tabs
+    description={<Description />}
+    props={<Props of={Confirmation} /> }
+    changelog={Changelog}
+/>

@@ -1,10 +1,12 @@
 import { Meta, Story, Props, Preview, Title } from '@storybook/addon-docs/blocks';
 import { text, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { CardImage } from './Component';
-import { name, version } from '../package.json';
-
+import { CardImage } from '..';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
 
 <Meta title='Компоненты' component={CardImage} />
 
@@ -35,20 +37,9 @@ import { name, version } from '../package.json';
 import { CardImage } from '@alfalab/core-components-card-image';
 ```
 
-## Описание
-
-Компонент изображения карты.
-
-Показывает прелоадер пока картинка не загрузится (переопределяется через переменную --card-image-background)
-
-<CardImage
-    cardId='EG'
-    width={500}
-    rounded={false}
-    baseUrl='https://online.alfabank.ru/cards-images/cards/'
-    className='some name'
-    id='some id'
-    dataTestId='test id'
+<Tabs
+    description={<Description />}
+    props={<Props of={CardImage} /> }
+    changelog={Changelog}
+    cssVars={<CssVars css={styles} />}
 />
-
-<Props of={CardImage} />

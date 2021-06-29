@@ -1,14 +1,15 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { action } from '@storybook/addon-actions';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { Button } from '../../button/src';
-import { Typography } from '../../typography/src';
-
-import { Drawer, DrawerContext } from './Component';
-
-import { name, version } from '../package.json';
+import { Button } from '../../../button/src';
+import { Typography } from '../../../typography/src';
+import styles from '!!raw-loader!../index.module.css';
+import { Drawer, DrawerContext } from '..';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import { name, version } from '../../package.json';
 
 
 <Meta
@@ -132,54 +133,9 @@ export const Content = () => {
 import { Drawer } from '@alfalab/core-components-drawer';
 ```
 
-## Компонент Drawer
-
-Компонент, представляющим собой заготовку для реализации сайд-панелей. В основе компонента лежит `BaseModal`.
-
-<Props of={Drawer} />
-
-<Preview>
-    {React.createElement(() => {
-        const [open, setOpen] = React.useState(false);
-        const handleModalOpen = () => setOpen(!open);
-        return (
-            <React.Fragment>
-                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
-                <Drawer
-                    open={open}
-                    onClose={handleModalOpen}
-                >
-                    <ContentWrapper>
-                        <Content/>
-                    </ContentWrapper>
-                </Drawer>
-            </React.Fragment>
-        );
-    })}
-</Preview>
-
-
-## Кастомные шапка и футер
-
-<Preview>
-    {React.createElement(() => {
-        const [open, setOpen] = React.useState(false);
-        const handleModalOpen = () => setOpen(!open);
-        return (
-            <React.Fragment>
-                <Button size="xs" onClick={handleModalOpen}>Open Drawer</Button>
-                <Drawer
-                    open={open}
-                    onClose={handleModalOpen}
-                >
-                    <Header />
-                    <ContentWrapper>
-                        <Content/>
-                    </ContentWrapper>
-                    <Footer />
-                </Drawer>
-            </React.Fragment>
-        );
-    })}
-</Preview>
-
+<Tabs
+    description={<Description />}
+    props={<Props of={Drawer} /> }
+    changelog={Changelog}
+    cssVars={<CssVars css={styles} />}
+/>

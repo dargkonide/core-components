@@ -1,9 +1,12 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { name, version } from '../package.json';
-import { CircularProgressBar } from './Component';
+import { name, version } from '../../package.json';
+import { CircularProgressBar } from '..';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
+import styles from '!!raw-loader!../index.module.css';
 
 
 <Meta title='Компоненты' component={CircularProgressBar} />
@@ -62,9 +65,9 @@ import { CircularProgressBar } from './Component';
 import { CircularProgressBar } from '@alfalab/core-components-circular-progress-bar';
 ```
 
-Отображает круговой индикатор прогресса (0-100%).
-
-<CircularProgressBar value={40} />
-
-
-<Props of={CircularProgressBar} />
+<Tabs
+    description={<Description />}
+    props={<Props of={CircularProgressBar} /> }
+    changelog={Changelog}
+    cssVars={<CssVars css={styles} />}
+/>
