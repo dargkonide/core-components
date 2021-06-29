@@ -1,10 +1,11 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs, CssVars } from 'storybook/blocks';
 
-import { Attach } from './Component';
-import { name, version } from '../package.json';
-
+import { Attach } from '..';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 <Meta
     title='Компоненты'
@@ -41,9 +42,8 @@ import { name, version } from '../package.json';
 import { Attach } from '@alfalab/core-components-attach';
 ```
 
-Компонент прикрепления файлов.
-
-<Attach />
-
-
-<Props of={Attach} />
+<Tabs
+    description={<Description />}
+    prpos={<Props of={Attach} />}
+    changelog={Changelog}
+/>

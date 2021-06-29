@@ -1,12 +1,13 @@
 import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 import { select, text, boolean } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs, Container, Row, Col } from 'storybook/blocks';
 
-import { Alert } from './Component';
-import { Button } from '../../button/src';
+import { Alert } from '..';
+import { Button } from '../../../button/src';
 
-import { name, version } from '../package.json';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 <Meta
     title='Компоненты'
@@ -44,12 +45,8 @@ import { name, version } from '../package.json';
 import { Alert } from '@alfalab/core-components-alert';
 ```
 
-## Alert
-
-Информирует пользователя о чем-либо. Может использоваться как сообщение, комментарий или предупреждение от системы.
-
-<Alert>
-    Вам одобрено. Согласитесь на предложение
-</Alert>
-
-<Props of={Alert} />
+<Tabs
+    description={<Description />}
+    prpos={<Props of={Alert} />}
+    changelog={Changelog}
+/>
