@@ -1,58 +1,8 @@
-import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
-import { action } from '@storybook/addon-actions';
-import { select, number } from '@storybook/addon-knobs';
-import { Container, Row, Col } from 'storybook/blocks/grid';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { Preview, Props } from '@storybook/addon-docs/blocks';
 
 import startOfDay from 'date-fns/startOfDay';
-
-import { Calendar } from './';
-import { usePeriod } from './usePeriod';
-
-import { name, version } from '../package.json';
-
-
-<Meta
-    title='Компоненты'
-    component={Calendar}
-    parameters={{ 'theme-switcher': { themes: ['click'] } }}
-/>
-
-
-<!-- Canvas -->
-
-<Story name='Calendar'>
-    {React.createElement(() => {
-        const [value, setValue] = React.useState();
-        return (
-            <Calendar
-                value={value}
-                onChange={setValue}
-                defaultView={select('defaultView', ['days', 'months', 'years'], 'days')}
-                selectorView={select('selectorView', ['full', 'month-only'], 'full')}
-                onMonthChange={action('onMonthChange')}
-            />
-        );
-    })}
-</Story>
-
-
-<!-- Docs -->
-
-<ComponentHeader
-    name='Calendar'
-    version={version}
-    package='@alfalab/core-components-calendar'
-    stage={2}
-    design='https://www.figma.com/file/hqSP3L6qu8UcL3sf18Su1M/Web-Components?node-id=3423%3A6'
-/>
-
-```tsx
-import { Calendar } from '@alfalab/core-components-calendar';
-```
-
-<Props of={Calendar} />
-
+import { Calendar } from '..';
+import { usePeriod } from '../usePeriod';
 
 ## Выбор даты из ограниченного интервала
 

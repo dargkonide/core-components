@@ -1,0 +1,47 @@
+import { Preview } from '@storybook/addon-docs/blocks';
+
+import { CalendarInput } from '../../../calendar-input/src';
+import { CalendarRange } from '../../../calendar-range/src';
+import { Button } from '../../../button/src';
+import { CalendarWithSkeleton } from '..';
+
+Календарь с возможностью скелетной загрузки
+
+<Preview>
+    {React.createElement(() => {
+        const [visible, setVisible] = React.useState(false);
+        return (
+            <>
+                <CalendarWithSkeleton calendarVisible={ visible }/>
+                <Button size="xs" onClick={() => setVisible(!visible)}>toggle</Button>
+            </>
+        );
+    })}
+</Preview>
+
+## Использование с другими компонентами
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <CalendarInput
+                Calendar={CalendarWithSkeleton}
+                calendarProps={{ calendarVisible: false }}
+            />
+        );
+    })}
+</Preview>
+
+<Preview>
+    {React.createElement(() => {
+        return (
+            <CalendarRange
+                inputFromProps={{
+                    Calendar: CalendarWithSkeleton,
+                    disabled: true,
+                    calendarProps: {calendarVisible: false }
+                }}
+            />
+        );
+    })}
+</Preview>

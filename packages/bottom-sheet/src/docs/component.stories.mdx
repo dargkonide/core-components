@@ -1,10 +1,12 @@
 import { Meta, Story, Props, Preview } from '@storybook/addon-docs/blocks';
 import { text, select, boolean, number } from '@storybook/addon-knobs';
-import { ComponentHeader } from 'storybook/blocks/component-header';
+import { ComponentHeader, Tabs } from 'storybook/blocks';
 import { Button } from '@alfalab/core-components-button';
 
-import { BottomSheet } from './';
-import { name, version } from '../package.json';
+import { BottomSheet } from '..';
+import { name, version } from '../../package.json';
+import Description from './description.mdx';
+import Changelog from '../../CHANGELOG.md';
 
 export const shortText =
     'Пользуйтесь сразу: реквизиты виртуальной и пластиковой карты будут доступны уже через 60 секунд после после оформления.';
@@ -80,7 +82,8 @@ export const longText = Array(10).fill(shortText).join('\n\n');
 import { BottomSheet } from '@alfalab/core-components-bottom-sheet';
 ```
 
-Шторка используется только в мобильной версии. Является адаптивом тултипа и списка с небольшим выбором.
-Вызывается при нажатии на кнопку или иконку. Выезжает снизу вверх.
-
-<Props of={BottomSheet} />
+<Tabs
+    description={<Description />}
+    props={<Props of={BottomSheet} />}
+    changelog={Changelog}
+/>
