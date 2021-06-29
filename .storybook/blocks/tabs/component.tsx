@@ -18,7 +18,7 @@ const TabTitle = {
 
 type Props = {
     description: ReactNode;
-    prpos: ReactNode;
+    props: ReactNode;
     cssVars?: ReactNode;
     changelog?: string;
     defaultSelected?: TabName;
@@ -26,7 +26,7 @@ type Props = {
 
 export const Tabs: FC<Props> = ({
     description,
-    prpos,
+    props,
     cssVars,
     changelog,
     defaultSelected = TabName.DESCRIPTION,
@@ -46,7 +46,7 @@ export const Tabs: FC<Props> = ({
                 <div style={{ marginTop: '40px' }}>{description}</div>
             </Tab>,
             <Tab title={TabTitle[TabName.PROPS]} id={TabName.PROPS}>
-                {prpos}
+                {props}
             </Tab>,
         ];
 
@@ -82,7 +82,7 @@ export const Tabs: FC<Props> = ({
         return result;
     };
 
-    const tabs = useMemo(() => renderTabs(), [description, prpos, cssVars]);
+    const tabs = useMemo(() => renderTabs(), [description, props, cssVars]);
 
     return (
         <TabsResponsive selectedId={selected} onChange={handleChange}>
