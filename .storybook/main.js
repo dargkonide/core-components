@@ -29,6 +29,10 @@ module.exports = {
         '@storybook/preset-create-react-app',
         './addons/theme-switcher/register.js',
     ],
+    typescript: {
+        /** Почему-то fork-ts-checker-webpack-plugin не запускается */
+        check: true,
+    },
     webpackFinal: async config => {
         addPackagesDir(config);
 
